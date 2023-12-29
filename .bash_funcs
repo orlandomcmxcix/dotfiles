@@ -1,0 +1,19 @@
+# funzioni utili per fare roba
+
+encrypt_file(){
+	openssl enc -in "$1" -aes-256-cbc -pbkdf2 -out "$1".enc
+	}
+
+decrypt_file(){
+
+	TMPFILE=$( mktemp )
+	openssl enc -d -in "$1" -aes-256-cbc -pbkdf2 -out $TMPFILE || return -1
+
+	if [ -z "$2" ] ; then
+		read -p "Use $1.plain? " DECREPLY
+		[ -z "$DECREPLY" ] && mv -i $TMPFILE "$1".plain || mv -i $TMPFILE "$DECREPLY"
+	else
+		mv -i $TMPFILE "$2"
+	fi
+
+	}
