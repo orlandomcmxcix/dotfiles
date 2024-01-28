@@ -22,3 +22,9 @@ topounds(){
 	[[ $pounds =~ [0-9\.]+ ]] && echo ${pounds}lbs || \
 		echo NaN
 }
+
+tokgs(){
+	kgs=$(units "$1"lbs 'kgs' | awk 'NR==1 {print $2}')
+	[[ $kgs =~ [0-9\.]+ ]] && echo ${kgs}kgs|| \
+		echo NaN
+}
