@@ -1,3 +1,8 @@
+set tabstop=8
+set softtabstop=8
+set shiftwidth=8
+set noexpandtab
+
 set nu
 set nocompatible
 syntax on
@@ -43,7 +48,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Vimwiki default folder
-let g:vimwiki_list = [{'path':'~/lavorowiki', 'path_html':'~/cerebra/export/html/'}]
+let g:vimwiki_list = [{'path':'~/vimwiki', 'path_html':'~/cerebra/export/html/'}]
 " Undofile
 set undofile
 set undodir=~/.vim/undodir
