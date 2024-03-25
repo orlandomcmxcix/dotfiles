@@ -143,3 +143,16 @@ autocmd BufNewFile *.tex 0r ~/.vim/templates/tex.tpl
 " * search for selected text in visual mode
 xnoremap * "zy/\V<C-r>=escape(@z, '\/')<CR><CR>
 
+" print wiki minimal file with lp
+command Wikibuf enew | set filetype=vimwiki
+function! StampaBuffer()
+    if @% == ""
+        let temp_file = tempname()
+        execute "write! " . temp_file
+        execute "!lp " . temp_file
+"        execute "silent !rm " . temp_file
+    else
+        execute "!lp %"
+    endif
+endfunction
+command Stampa call StampaBuffer()
