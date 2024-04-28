@@ -1,3 +1,4 @@
+" tab
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8
@@ -156,3 +157,8 @@ function! StampaBuffer()
     endif
 endfunction
 command Stampa call StampaBuffer()
+
+
+" next preve diary page
+nnoremap \w\p :VimwikiDiaryPrevDay<CR>
+nnoremap \w\n :VimwikiDiaryNextDay<CR>
