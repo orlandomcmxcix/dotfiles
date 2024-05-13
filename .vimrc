@@ -23,7 +23,7 @@ nnoremap N Nzz
 nnoremap \y "+y
 nnoremap \p "+p
 nnoremap \P "+P
-nnoremap \y "+Y
+nnoremap \Y "+Y
 
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
@@ -159,6 +159,17 @@ endfunction
 command Stampa call StampaBuffer()
 
 
+function! TmpDiary()
+	let l:date = strftime("%d-%b")
+	let l:filename = "/tmp/" . l:date
+	execute "edit " . l:filename
+endfunction
+command TmpDiaryToday call TmpDiary()
+nnoremap \o :TmpDiaryToday<CR>
+
+
+
 " next preve diary page
 nnoremap \w\p :VimwikiDiaryPrevDay<CR>
 nnoremap \w\n :VimwikiDiaryNextDay<CR>
+
