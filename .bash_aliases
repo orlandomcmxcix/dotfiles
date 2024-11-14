@@ -6,6 +6,4 @@ alias fzf='fzf-tmux'
 alias opbo='open $(fzf-tmux)'
 alias sleep='date && sleep'
 
-alias c='xclip'
 alias ctrlc='xclip -selection clipboard'
-alias v='xclip -o'

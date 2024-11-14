@@ -1,4 +1,3 @@
-" tab
 set tabstop=8
 set softtabstop=8
 set shiftwidth=8
@@ -23,7 +22,7 @@ nnoremap N Nzz
 nnoremap \y "+y
 nnoremap \p "+p
 nnoremap \P "+P
-nnoremap \Y "+Y
+nnoremap \y "+Y
 
 nnoremap <C-j> :bn<CR>
 nnoremap <C-k> :bp<CR>
@@ -145,7 +144,8 @@ autocmd BufNewFile *.tex 0r ~/.vim/templates/tex.tpl
 xnoremap * "zy/\V<C-r>=escape(@z, '\/')<CR><CR>
 
 " print wiki minimal file with lp
-command Wikibuf enew | set filetype=vimwiki
+" no Wikibuf because of w[tab] completion
+command Uikibuf enew | set filetype=vimwiki
 function! StampaBuffer()
     if @% == ""
         let temp_file = tempname()
@@ -157,19 +157,3 @@ function! StampaBuffer()
     endif
 endfunction
 command Stampa call StampaBuffer()
-
-
-function! TmpDiary()
-	let l:date = strftime("%d-%b")
-	let l:filename = "/tmp/" . l:date
-	execute "edit " . l:filename
-endfunction
-command TmpDiaryToday call TmpDiary()
-nnoremap \o :TmpDiaryToday<CR>
-
-
-
-" next preve diary page
-nnoremap \w\p :VimwikiDiaryPrevDay<CR>
-nnoremap \w\n :VimwikiDiaryNextDay<CR>
-
